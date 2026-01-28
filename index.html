@@ -1113,7 +1113,56 @@
             opacity: 1;
             transform: translateY(0);
         }
-    </style>
+    
+
+        /* ---- Mobile readability fix: Health Service block ---- */
+        .service-panel { box-sizing: border-box; }
+        .service-split { display: grid; gap: 3rem; align-items: center; }
+        .service-split--health { grid-template-columns: 1fr 2fr; }
+        .service-badge { text-align: center; }
+        .service-icon { font-size: 5rem; margin-bottom: 1rem; line-height: 1; }
+        .service-heading { font-size: 2rem; color: var(--primary); font-weight: 700; margin: 0; }
+
+        @media (max-width: 768px) {
+            /* reduce excessive padding on small screens */
+            .service-panel {
+                padding: 2.25rem 1.25rem !important;
+                border-radius: 24px !important;
+            }
+
+            /* put the title at the top (like product lineup), full width */
+            .service-split--health {
+                display: flex !important;
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 1.25rem !important;
+            }
+
+            .service-badge {
+                text-align: left !important;
+                display: flex;
+                align-items: center;
+                gap: 0.8rem;
+            }
+
+            .service-icon {
+                font-size: 2.2rem !important;
+                margin-bottom: 0 !important;
+            }
+
+            .service-heading {
+                font-size: 1.5rem !important;
+                line-height: 1.15;
+            }
+
+            .service-body-title {
+                font-size: 1.25rem !important;
+                margin-bottom: 1rem !important;
+            }
+        }
+        /* ---- end fix ---- */
+
+</style>
 </head>
 <body>
     <!-- 네비게이션 -->
@@ -1198,14 +1247,14 @@
 
         <div style="max-width: 1200px; margin: 4rem auto;">
             <!-- 건강관리 서비스 -->
-            <div class="fade-in" style="background: linear-gradient(135deg, var(--light), white); padding: 4rem; border-radius: 30px; margin-bottom: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
-                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 5rem; margin-bottom: 1rem;">💎</div>
-                        <h3 style="font-size: 2rem; color: var(--primary); font-weight: 700;">건강관리<br>서비스</h3>
+            <div class="fade-in service-panel service-panel--health" style="background: linear-gradient(135deg, var(--light), white); padding: 4rem; border-radius: 30px; margin-bottom: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                <div class="service-split service-split--health">
+                    <div class="service-badge service-title">
+                        <div class="service-icon">💎</div>
+                        <h3 class="service-heading">건강관리 서비스</h3>
                     </div>
-                    <div>
-                        <h4 style="font-size: 1.5rem; color: var(--dark); margin-bottom: 1.5rem; font-weight: 700;">바이오포톤 PDP 건강관리 프로그램</h4>
+                    <div class="service-body">
+                        <h4 class="service-body-title" style="font-size: 1.5rem; color: var(--dark); margin-bottom: 1.5rem; font-weight: 700;">바이오포톤 PDP 건강관리 프로그램</h4>
                         <div style="display: grid; gap: 1rem; margin-bottom: 2rem;">
                             <div style="padding: 1.5rem; background: white; border-radius: 15px; border-left: 4px solid var(--accent);">
                                 <strong style="color: var(--primary);">1회 이용권</strong>
