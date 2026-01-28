@@ -32,18 +32,6 @@
             overflow-x: hidden;
         }
 
-        /* 모바일 메뉴 토글 버튼 */
-        .mobile-menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            color: var(--primary);
-            cursor: pointer;
-            padding: 0.5rem;
-            z-index: 1001;
-        }
-
         /* 네비게이션 */
         nav {
             position: fixed;
@@ -76,7 +64,6 @@
             font-weight: 700;
             color: var(--primary);
             letter-spacing: 1px;
-            z-index: 1001;
         }
 
         .logo span {
@@ -122,7 +109,6 @@
             font-weight: 600;
             transition: all 0.3s;
             border: 2px solid var(--primary);
-            white-space: nowrap;
         }
 
         .cta-button:hover {
@@ -135,43 +121,47 @@
         /* 히어로 섹션 */
         .hero {
             margin-top: 80px;
-            min-height: 90vh;
+            height: 90vh;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
         }
 
-        .hero-background {
+        .hero-video {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 50%, rgba(212, 165, 116, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 50%, rgba(143, 181, 163, 0.3) 0%, transparent 50%),
-                linear-gradient(135deg, rgba(45, 95, 79, 0.95) 0%, rgba(143, 181, 163, 0.85) 100%);
-            animation: gradientShift 15s ease infinite;
+            object-fit: cover;
+            z-index: 0;
         }
 
-        @keyframes gradientShift {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.8; }
-        }
-
-        .hero-pattern {
+        .hero::before {
+            content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background-image: 
-                repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255,255,255,.03) 35px, rgba(255,255,255,.03) 70px);
-            animation: float 20s ease-in-out infinite;
+            background: linear-gradient(135deg, rgba(45, 95, 79, 0.85) 0%, rgba(143, 181, 163, 0.7) 100%);
             z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: float 20s ease-in-out infinite;
+            z-index: 2;
         }
 
         @keyframes float {
@@ -184,7 +174,7 @@
             color: white;
             z-index: 2;
             max-width: 900px;
-            padding: 2rem;
+            padding: 0 2rem;
             animation: fadeInUp 1s ease-out;
         }
 
@@ -200,7 +190,7 @@
         }
 
         .hero-content h1 {
-            font-size: clamp(2rem, 6vw, 4rem);
+            font-size: 4rem;
             font-weight: 900;
             margin-bottom: 1.5rem;
             line-height: 1.2;
@@ -208,7 +198,7 @@
         }
 
         .hero-content .subtitle {
-            font-size: clamp(1rem, 3vw, 1.5rem);
+            font-size: 1.5rem;
             font-weight: 300;
             margin-bottom: 3rem;
             opacity: 0.95;
@@ -219,14 +209,13 @@
             display: flex;
             gap: 1.5rem;
             justify-content: center;
-            flex-wrap: wrap;
             animation: fadeInUp 1s ease-out 0.4s backwards;
         }
 
         .btn-primary, .btn-secondary {
             padding: 1.2rem 3rem;
             border-radius: 50px;
-            font-size: clamp(0.95rem, 2vw, 1.1rem);
+            font-size: 1.1rem;
             font-weight: 600;
             text-decoration: none;
             transition: all 0.3s;
@@ -242,7 +231,7 @@
             background: transparent;
             color: white;
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
         }
 
         .btn-secondary {
@@ -254,137 +243,277 @@
             background: white;
             color: var(--primary);
             transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        /* 섹션 공통 스타일 */
-        section {
-            padding: 6rem 5%;
+        /* 소개 섹션 */
+        .intro {
+            padding: 8rem 5%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
         }
 
         .section-tag {
-            display: inline-block;
             color: var(--accent);
-            font-weight: 600;
             font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            letter-spacing: 2px;
             margin-bottom: 1rem;
         }
 
         .section-title {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: 3rem;
             color: var(--dark);
             margin-bottom: 1.5rem;
-            font-weight: 900;
+            font-weight: 700;
         }
 
         .section-description {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: 1.2rem;
             color: var(--text);
             max-width: 700px;
             margin: 0 auto;
             line-height: 1.8;
-            opacity: 0.8;
         }
 
-        /* 특징 섹션 */
-        .features {
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .feature-card {
-            text-align: center;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            background: var(--light);
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 20px 40px rgba(45, 95, 79, 0.1);
-        }
-
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            display: block;
-        }
-
-        .feature-card h3 {
-            font-size: 1.4rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .feature-card p {
-            color: var(--text);
-            line-height: 1.8;
-            opacity: 0.85;
-        }
-
-        /* 기술 섹션 */
-        .technology {
-            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
-            color: white;
-        }
-
-        .technology .section-tag,
-        .technology .section-title,
-        .technology .section-description {
-            color: white;
-        }
-
-        .tech-content {
+        .intro-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .intro-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            transform: scaleX(0);
+            transition: transform 0.4s;
+        }
+
+        .intro-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: var(--text);
+            line-height: 1.8;
+        }
+
+        /* 바이오포톤 기술 섹션 */
+        .technology {
+            padding: 8rem 5%;
+            background: linear-gradient(to bottom, var(--light), white);
+        }
+
+        .tech-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
+            align-items: center;
+        }
+
+        .tech-image {
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.15);
+        }
+
+        .tech-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(45, 95, 79, 0.3), rgba(143, 181, 163, 0.2));
+            z-index: 1;
+        }
+
+        .tech-placeholder {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .tech-text h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .tech-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .tech-features {
             margin-top: 3rem;
         }
 
-        .tech-block {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2.5rem;
-            border-radius: 20px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        .feature-item {
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1.5rem;
+            background: var(--light);
+            border-radius: 15px;
+            transition: all 0.3s;
         }
 
-        .tech-block h3 {
+        .feature-item:hover {
+            background: white;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transform: translateX(5px);
+        }
+
+        .feature-icon {
             font-size: 1.5rem;
-            margin-bottom: 1.5rem;
             color: var(--accent);
         }
 
-        .tech-block ul {
-            list-style: none;
+        .feature-text h4 {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
         }
 
-        .tech-block li {
-            padding: 0.8rem 0;
-            padding-left: 1.5rem;
+        /* 제품 섹션 */
+        .products {
+            padding: 8rem 5%;
+            background: white;
+        }
+
+        .products-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .product-card {
+            background: var(--light);
+            border-radius: 25px;
+            overflow: hidden;
+            transition: all 0.4s;
             position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.12);
+        }
+
+        .product-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .product-image span {
+            font-size: 4rem;
+            z-index: 1;
+        }
+
+        .product-info {
+            padding: 2.5rem;
+        }
+
+        .product-name {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .product-description {
+            color: var(--text);
+            margin-bottom: 1.5rem;
             line-height: 1.7;
         }
 
-        .tech-block li::before {
+        .product-benefits {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .product-benefits li {
+            padding: 0.5rem 0;
+            color: var(--text);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .product-benefits li::before {
             content: '✓';
             position: absolute;
             left: 0;
@@ -392,322 +521,212 @@
             font-weight: bold;
         }
 
-        /* 서비스 섹션 */
-        .services {
-            background: var(--light);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: 25px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
-        }
-
-        .service-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
+        .experience-button {
+            display: inline-block;
+            background: var(--primary);
             color: white;
-        }
-
-        .service-content {
-            padding: 2.5rem;
-        }
-
-        .service-content h3 {
-            font-size: 1.6rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .service-content p {
-            color: var(--text);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-content ul {
-            list-style: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-content li {
-            padding: 0.6rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text);
-            opacity: 0.9;
-        }
-
-        .service-content li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .service-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--accent);
-            margin-top: 1.5rem;
-        }
-
-        /* 제품 섹션 */
-        .products {
-            background: white;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .product-card {
-            background: var(--light);
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.3s;
-            border: 2px solid transparent;
-        }
-
-        .product-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 280px;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 5rem;
-            color: var(--secondary);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--accent);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
             font-weight: 600;
+            transition: all 0.3s;
         }
 
-        .product-info {
-            padding: 2rem;
+        .experience-button:hover {
+            background: var(--dark);
+            transform: translateX(5px);
         }
 
-        .product-info h3 {
-            font-size: 1.3rem;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
-            font-weight: 700;
+        /* 체험 후기 섹션 */
+        .reviews {
+            padding: 8rem 5%;
+            background: var(--primary);
+            color: white;
         }
 
-        .product-info p {
-            color: var(--text);
-            font-size: 0.95rem;
-            line-height: 1.7;
-            margin-bottom: 1.5rem;
-            opacity: 0.85;
-        }
-
-        .product-price {
-            font-size: 1.6rem;
-            font-weight: 700;
+        .reviews .section-tag {
             color: var(--accent);
         }
 
-        /* 후기 섹션 */
-        .reviews {
-            background: var(--light);
+        .reviews .section-title {
+            color: white;
         }
 
-        .reviews-grid {
+        .reviews .section-description {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .reviews-container {
+            max-width: 1200px;
+            margin: 4rem auto 0;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2.5rem;
         }
 
         .review-card {
-            background: white;
-            padding: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
             border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s;
         }
 
         .review-card:hover {
+            background: rgba(255, 255, 255, 0.15);
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
         }
 
         .review-stars {
-            color: #ffc107;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
         }
 
         .review-text {
-            color: var(--text);
+            font-size: 1.1rem;
             line-height: 1.8;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
             font-style: italic;
         }
 
-        .review-author {
+        .reviewer-info {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .review-avatar {
+        .reviewer-avatar {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%);
+            background: var(--accent);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            font-size: 1.5rem;
             font-weight: 700;
-            font-size: 1.2rem;
         }
 
-        .review-info h4 {
-            color: var(--primary);
+        .reviewer-details h4 {
             font-weight: 600;
             margin-bottom: 0.3rem;
         }
 
-        .review-info p {
-            color: var(--text);
+        .reviewer-details p {
             font-size: 0.9rem;
-            opacity: 0.7;
+            opacity: 0.8;
         }
 
         /* 방문 안내 섹션 */
         .visit-info {
+            padding: 8rem 5%;
             background: white;
         }
 
         .visit-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 5rem;
         }
 
         .info-block {
             background: var(--light);
-            padding: 2.5rem;
+            padding: 3rem;
             border-radius: 20px;
-            border-left: 4px solid var(--accent);
         }
 
         .info-block h3 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: var(--primary);
             margin-bottom: 2rem;
-            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .info-item {
             margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
         }
 
         .info-item:last-child {
-            margin-bottom: 0;
+            border-bottom: none;
         }
 
         .info-label {
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
             font-size: 1.1rem;
         }
 
         .info-value {
             color: var(--text);
-            line-height: 1.8;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .map-placeholder {
+            height: 400px;
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
         }
 
         /* 예약 섹션 */
         .booking {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 8rem 5%;
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
             color: white;
             text-align: center;
-            padding: 5rem 5%;
         }
 
         .booking h2 {
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-            margin-bottom: 1rem;
-            font-weight: 900;
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
         }
 
         .booking p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
+            font-size: 1.3rem;
             margin-bottom: 3rem;
-            opacity: 0.95;
+            opacity: 0.9;
         }
 
         .booking-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
             justify-content: center;
             flex-wrap: wrap;
-            margin-top: 2rem;
         }
 
         .booking-btn {
-            background: white;
-            color: var(--primary);
-            padding: 1.5rem 2.5rem;
-            border-radius: 15px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: all 0.3s;
             display: flex;
             align-items: center;
             gap: 1rem;
-            min-width: 200px;
-            justify-content: center;
+            background: white;
+            color: var(--primary);
+            padding: 1.5rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.2rem;
+            transition: all 0.3s;
         }
 
         .booking-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            background: var(--accent);
+            color: white;
         }
 
         .booking-icon {
@@ -717,36 +736,35 @@
         /* 푸터 */
         footer {
             background: var(--dark);
-            color: white;
-            padding: 4rem 5% 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 4rem 5%;
         }
 
         .footer-content {
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
         }
 
         .footer-brand {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
             font-weight: 700;
+            color: white;
             margin-bottom: 1rem;
         }
 
         .footer-description {
-            opacity: 0.8;
-            line-height: 1.7;
+            line-height: 1.8;
             margin-bottom: 2rem;
         }
 
         .footer-section h4 {
-            font-size: 1.2rem;
+            color: white;
             margin-bottom: 1.5rem;
-            color: var(--accent);
+            font-size: 1.2rem;
         }
 
         .footer-links {
@@ -758,38 +776,100 @@
         }
 
         .footer-links a {
-            color: white;
+            color: rgba(255, 255, 255, 0.7);
             text-decoration: none;
-            opacity: 0.8;
-            transition: all 0.3s;
+            transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            opacity: 1;
             color: var(--accent);
-            padding-left: 5px;
         }
 
         .footer-bottom {
             max-width: 1400px;
-            margin: 0 auto;
+            margin: 3rem auto 0;
             padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
-            opacity: 0.7;
             font-size: 0.9rem;
         }
 
-        /* 애니메이션 */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
+        /* 반응형 */
+        @media (max-width: 1024px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .tech-content,
+            .visit-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .booking-buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* 모바일 메뉴 토글 버튼 */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        /* 메뉴 오버레이 */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 998;
+        }
+
+        .menu-overlay.active {
+            display: block;
         }
 
         /* 반응형 디자인 - 태블릿 */
@@ -799,15 +879,22 @@
             }
 
             .nav-links {
-                gap: 2rem;
+                gap: 1.5rem;
             }
 
             .features-grid,
             .services-grid,
             .products-grid,
-            .reviews-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            .reviews-grid,
+            .tech-content,
+            .visit-container,
+            .partners-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
                 gap: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: clamp(2.5rem, 5vw, 3.5rem);
             }
         }
 
@@ -819,6 +906,10 @@
 
             nav {
                 padding: 1rem 4%;
+            }
+
+            .logo {
+                font-size: 1.5rem;
             }
 
             .nav-links {
@@ -857,10 +948,7 @@
                 margin-top: 1rem;
                 text-align: center;
                 padding: 1rem 2rem;
-            }
-
-            .logo {
-                font-size: 1.5rem;
+                white-space: normal;
             }
 
             .hero {
@@ -872,6 +960,14 @@
                 padding: 1.5rem;
             }
 
+            .hero-content h1 {
+                font-size: clamp(1.8rem, 6vw, 2.5rem);
+            }
+
+            .hero-content .subtitle {
+                font-size: clamp(0.95rem, 3vw, 1.2rem);
+            }
+
             .hero-buttons {
                 flex-direction: column;
                 gap: 1rem;
@@ -880,6 +976,7 @@
             .btn-primary, .btn-secondary {
                 width: 100%;
                 padding: 1rem 2rem;
+                font-size: 1rem;
             }
 
             section {
@@ -888,6 +985,14 @@
 
             .section-header {
                 margin-bottom: 2.5rem;
+            }
+
+            .section-title {
+                font-size: clamp(1.8rem, 5vw, 2.5rem);
+            }
+
+            .section-description {
+                font-size: 1rem;
             }
 
             .features-grid,
@@ -926,8 +1031,27 @@
             .feature-card,
             .service-card,
             .product-card,
-            .review-card {
+            .review-card,
+            .tech-block,
+            .info-block {
                 padding: 2rem 1.5rem;
+            }
+
+            .service-image,
+            .product-image {
+                height: 200px;
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+
+            .partner-card {
+                height: 150px;
             }
         }
 
@@ -938,11 +1062,16 @@
             }
 
             .hero-content .subtitle {
-                font-size: 1rem;
+                font-size: 0.95rem;
             }
 
             .section-title {
                 font-size: 1.8rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                padding: 0.9rem 1.5rem;
+                font-size: 0.95rem;
             }
 
             .feature-icon {
@@ -951,7 +1080,7 @@
 
             .service-image,
             .product-image {
-                height: 200px;
+                height: 180px;
                 font-size: 3rem;
             }
 
@@ -959,22 +1088,30 @@
             .tech-block {
                 padding: 1.5rem;
             }
+
+            .booking h2 {
+                font-size: 1.5rem;
+            }
+
+            .booking-icon {
+                font-size: 1.5rem;
+            }
+
+            .partner-card {
+                height: 120px;
+            }
         }
 
-        /* 메뉴 오버레이 */
-        .menu-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 998;
+        /* 스크롤 애니메이션 */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
         }
 
-        .menu-overlay.active {
-            display: block;
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
@@ -982,16 +1119,19 @@
     <!-- 네비게이션 -->
     <nav id="navbar">
         <div class="nav-container">
-            <div class="logo">Rapha<span>Care</span></div>
+            <div class="logo" style="display: flex; align-items: center; gap: 1rem;">
+                <img src="assets/common/products/footer_logo.svg" alt="바이오포톤" style="height: 40px;">
+                <div style="border-left: 2px solid var(--border); height: 30px; margin: 0 0.5rem;"></div>
+                <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--primary);">Rapha<span style="color: var(--accent); font-weight: 400;">Care</span></span>
+            </div>
             <button class="mobile-menu-toggle" id="menuToggle" aria-label="메뉴 열기">☰</button>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#features">특징</a></li>
-                <li><a href="#technology">기술</a></li>
+                <li><a href="#intro">센터소개</a></li>
                 <li><a href="#services">서비스</a></li>
-                <li><a href="#products">제품</a></li>
+                <li><a href="#products">제품안내</a></li>
                 <li><a href="#reviews">후기</a></li>
                 <li><a href="#visit">방문안내</a></li>
-                <li><a href="tel:010-3630-7002" class="cta-button">📞 상담예약</a></li>
+                <li><a href="#booking" class="cta-button">상담 예약</a></li>
             </ul>
         </div>
     </nav>
@@ -1001,175 +1141,217 @@
 
     <!-- 히어로 섹션 -->
     <section class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-pattern"></div>
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="assets/videos/hero_video.mp4" type="video/mp4">
+        </video>
         <div class="hero-content">
-            <h1>건강한 빛으로 시작하는<br>새로운 라이프스타일</h1>
-            <p class="subtitle">
-                NASA 인증 생육광선 PDP 기술 | 바이오포톤 공식 대리점<br>
-                라파케어 시흥센터에서 건강과 아름다움을 경험하세요
-            </p>
+            <h1>건강한 삶의 시작<br>라파케어 시흥센터</h1>
+            <p class="subtitle">바이오포톤 PDP 생육광선 건강관리 서비스<br>건강관리 · 제품구매 · 프라이빗 헤어살롱까지 원스톱 케어</p>
             <div class="hero-buttons">
-                <a href="tel:010-3630-7002" class="btn-primary">무료 상담 예약</a>
-                <a href="#services" class="btn-secondary">서비스 둘러보기</a>
+                <a href="#booking" class="btn-primary">상담 예약하기</a>
+                <a href="#services" class="btn-secondary">서비스 안내</a>
             </div>
         </div>
     </section>
 
-    <!-- 특징 섹션 -->
-    <section class="features" id="features">
+    <!-- 소개 섹션 -->
+    <section class="intro" id="intro">
         <div class="section-header fade-in">
-            <div class="section-tag">Why Choose Us</div>
-            <h2 class="section-title">라파케어 시흥센터의 특별함</h2>
+            <div class="section-tag">About Us</div>
+            <h2 class="section-title">라파케어 시흥센터를 소개합니다</h2>
             <p class="section-description">
-                과학적으로 검증된 기술과 전문적인 케어로<br>
-                당신의 건강한 삶을 지원합니다
+                바이오포톤 공식 대리점으로 건강관리 서비스와 제품 판매, 그리고 프라이빗 헤어살롱까지 
+                한 곳에서 제공하는 프리미엄 복합 웰니스 공간입니다.
             </p>
         </div>
 
-        <div class="features-grid">
-            <div class="feature-card fade-in">
-                <span class="feature-icon">🔬</span>
-                <h3>NASA 인증 기술</h3>
-                <p>우주 항공 기술에서 유래한 생육광선 PDP 기술로 세포 수준의 건강관리를 제공합니다.</p>
+        <div class="intro-grid">
+            <div class="intro-card fade-in">
+                <div class="card-icon">💎</div>
+                <h3 class="card-title">건강관리 서비스</h3>
+                <p class="card-text">바이오포톤 PDP 기술을 활용한 전문 건강관리 프로그램. 체온관리, 면역력 증진, 혈액순환 개선을 위한 맞춤형 케어를 제공합니다.</p>
             </div>
 
-            <div class="feature-card fade-in">
-                <span class="feature-icon">👨‍⚕️</span>
-                <h3>전문 상담</h3>
-                <p>개인별 건강 상태를 분석하고 맞춤형 프로그램을 제안하는 1:1 전문 상담 서비스를 제공합니다.</p>
+            <div class="intro-card fade-in">
+                <div class="card-icon">🛍️</div>
+                <h3 class="card-title">공식 인증 판매점</h3>
+                <p class="card-text">바이오포톤 본사 인증 공식 대리점으로 정품 제품 구매가 가능합니다. 전신돔, 멀티돔, 침구류 등 다양한 제품을 직접 체험 후 구매하실 수 있습니다.</p>
             </div>
 
-            <div class="feature-card fade-in">
-                <span class="feature-icon">🏆</span>
-                <h3>공식 대리점</h3>
-                <p>바이오포톤 공식 대리점으로서 정품 제품과 전문적인 서비스를 보장합니다.</p>
-            </div>
-
-            <div class="feature-card fade-in">
-                <span class="feature-icon">✂️</span>
-                <h3>프라이빗 살롱</h3>
-                <p>라파헤어 프라이빗 살롱에서 두피 건강관리와 함께 헤어 케어를 받으실 수 있습니다.</p>
-            </div>
-
-            <div class="feature-card fade-in">
-                <span class="feature-icon">🌿</span>
-                <h3>자연친화적</h3>
-                <p>인체에 안전한 자연 광선을 활용하여 부작용 없는 건강관리가 가능합니다.</p>
-            </div>
-
-            <div class="feature-card fade-in">
-                <span class="feature-icon">📍</span>
-                <h3>편리한 위치</h3>
-                <p>시흥시청 인근 메인프라자에 위치하여 접근성이 뛰어나며 주차가 편리합니다.</p>
+            <div class="intro-card fade-in">
+                <div class="card-icon">✂️</div>
+                <h3 class="card-title">라파헤어 프라이빗 살롱</h3>
+                <p class="card-text">건강관리와 함께 헤어 케어까지. 프라이빗한 공간에서 편안하게 미용 서비스를 받으실 수 있는 복합 뷰티 공간입니다.</p>
             </div>
         </div>
     </section>
 
-    <!-- 기술 섹션 -->
+    <!-- 서비스 안내 섹션 -->
+    <section class="intro" id="services" style="background: white;">
+        <div class="section-header fade-in">
+            <div class="section-tag">Services</div>
+            <h2 class="section-title">라파케어 서비스 안내</h2>
+            <p class="section-description">
+                건강관리부터 뷰티케어까지, 토털 웰니스 서비스를 제공합니다
+            </p>
+        </div>
+
+        <div style="max-width: 1200px; margin: 4rem auto;">
+            <!-- 건강관리 서비스 -->
+            <div class="fade-in" style="background: linear-gradient(135deg, var(--light), white); padding: 4rem; border-radius: 30px; margin-bottom: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 5rem; margin-bottom: 1rem;">💎</div>
+                        <h3 style="font-size: 2rem; color: var(--primary); font-weight: 700;">건강관리<br>서비스</h3>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; color: var(--dark); margin-bottom: 1.5rem; font-weight: 700;">바이오포톤 PDP 건강관리 프로그램</h4>
+                        <div style="display: grid; gap: 1rem; margin-bottom: 2rem;">
+                            <div style="padding: 1.5rem; background: white; border-radius: 15px; border-left: 4px solid var(--accent);">
+                                <strong style="color: var(--primary);">1회 이용권</strong>
+                                <p style="margin-top: 0.5rem; color: var(--text);">전신돔 또는 멀티돔 40분 / 1회 체험</p>
+                            </div>
+                            <div style="padding: 1.5rem; background: white; border-radius: 15px; border-left: 4px solid var(--accent);">
+                                <strong style="color: var(--primary);">정기 회원권</strong>
+                                <p style="margin-top: 0.5rem; color: var(--text);">10회 / 20회 / 30회권 (할인 혜택 제공)</p>
+                            </div>
+                            <div style="padding: 1.5rem; background: white; border-radius: 15px; border-left: 4px solid var(--accent);">
+                                <strong style="color: var(--primary);">맞춤 케어 프로그램</strong>
+                                <p style="margin-top: 0.5rem; color: var(--text);">개인별 건강 상태에 맞춘 집중 관리 프로그램</p>
+                            </div>
+                        </div>
+                        <p style="color: var(--accent); font-weight: 600;">※ 첫 방문 고객 상담 후 1회 체험 가능 (유료)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 제품 판매 -->
+            <div class="fade-in" style="background: linear-gradient(135deg, white, var(--light)); padding: 4rem; border-radius: 30px; margin-bottom: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center;">
+                    <div>
+                        <h4 style="font-size: 1.5rem; color: var(--dark); margin-bottom: 1.5rem; font-weight: 700;">바이오포톤 제품 판매</h4>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem;">
+                            센터에서 직접 체험해보신 제품을 구매하실 수 있습니다. 
+                            전신돔, 멀티돔, 히노끼돔은 물론 침구류, 서포터류, 생활용품까지 
+                            다양한 바이오포톤 제품을 만나보세요.
+                        </p>
+                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <span style="padding: 0.8rem 1.5rem; background: white; border-radius: 50px; color: var(--primary); font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">온열 기기</span>
+                            <span style="padding: 0.8rem 1.5rem; background: white; border-radius: 50px; color: var(--primary); font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">침구 & 매트</span>
+                            <span style="padding: 0.8rem 1.5rem; background: white; border-radius: 50px; color: var(--primary); font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">서포터류</span>
+                            <span style="padding: 0.8rem 1.5rem; background: white; border-radius: 50px; color: var(--primary); font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">생활용품</span>
+                        </div>
+                        <p style="margin-top: 2rem; color: var(--accent); font-weight: 600;">✓ 정품 보증 / 사후관리 서비스 / 분할 납부 가능</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <div style="font-size: 5rem; margin-bottom: 1rem;">🛍️</div>
+                        <h3 style="font-size: 2rem; color: var(--primary); font-weight: 700;">제품<br>구매</h3>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 라파헤어 -->
+            <div class="fade-in" style="background: linear-gradient(135deg, #f8f4ef, #fff); padding: 4rem; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
+                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;">
+                    <div style="text-align: center;">
+                        <div style="font-size: 5rem; margin-bottom: 1rem;">✂️</div>
+                        <h3 style="font-size: 2rem; color: var(--primary); font-weight: 700;">라파헤어<br>프라이빗 살롱</h3>
+                    </div>
+                    <div>
+                        <h4 style="font-size: 1.5rem; color: var(--dark); margin-bottom: 1.5rem; font-weight: 700;">편안한 프라이빗 미용 서비스</h4>
+                        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem;">
+                            건강관리 후 바로 이어지는 헤어 케어 서비스. 
+                            프라이빗한 공간에서 편안하게 커트, 펌, 염색 등 
+                            전문 미용 서비스를 받으실 수 있습니다.
+                        </p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                            <div style="padding: 1rem; background: white; border-radius: 10px; text-align: center;">
+                                <strong style="color: var(--primary);">커트</strong>
+                            </div>
+                            <div style="padding: 1rem; background: white; border-radius: 10px; text-align: center;">
+                                <strong style="color: var(--primary);">펌</strong>
+                            </div>
+                            <div style="padding: 1rem; background: white; border-radius: 10px; text-align: center;">
+                                <strong style="color: var(--primary);">염색</strong>
+                            </div>
+                            <div style="padding: 1rem; background: white; border-radius: 10px; text-align: center;">
+                                <strong style="color: var(--primary);">클리닉</strong>
+                            </div>
+                        </div>
+                        <p style="margin-top: 2rem; color: var(--accent); font-weight: 600;">※ 완전 예약제 운영 / 건강관리 + 헤어 패키지 할인 제공</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 바이오포톤 기술 섹션 -->
     <section class="technology" id="technology">
         <div class="section-header fade-in">
             <div class="section-tag">Technology</div>
             <h2 class="section-title">바이오포톤 PDP 기술</h2>
             <p class="section-description">
-                NASA에서 검증한 생육광선 기술로<br>
-                세포 재생과 건강 증진을 지원합니다
+                NASA가 주목한 생육광선 연구를 기반으로 개발된 차세대 건강 케어 기술
             </p>
+        </div>
+
+        <!-- NASA 인증 섹션 -->
+        <div style="max-width: 1200px; margin: 4rem auto; padding: 4rem; background: white; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <img src="assets/common/products/sec01_img01.png" alt="NASA 로고" style="max-width: 200px; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 1.5rem; font-weight: 700;">NASA(미국항공우주국) 1981년 우주개발 연구결과</h3>
+                <p style="font-size: 1.2rem; line-height: 1.9; color: var(--text); max-width: 900px; margin: 0 auto;">
+                    "우주로부터 지구에 쏟아지는 태양빛 중 4~14미크론의 파장을 가진 생육광선이야말로 
+                    인체에 매우 유효하게 작용하며 생물의 생존에 절대적으로 필요한 존재이다."
+                </p>
+            </div>
+            <div style="text-align: center;">
+                <img src="assets/common/products/sec01_img02.png" alt="생육광선 파장 설명" style="max-width: 100%; border-radius: 20px;">
+            </div>
         </div>
 
         <div class="tech-content">
-            <div class="tech-block fade-in">
-                <h3>🌟 PDP 기술이란?</h3>
-                <ul>
-                    <li>Photo Dynamic Process의 약자</li>
-                    <li>빛 에너지를 활용한 세포 활성화 기술</li>
-                    <li>NASA 우주 항공 기술에서 유래</li>
-                    <li>특정 파장의 생육광선 활용</li>
-                    <li>인체에 안전한 자연 광선 원리</li>
-                </ul>
+            <div class="tech-image fade-in">
+                <img src="assets/common/products/sec03_img01.jpg" alt="바이오포톤 본사 건물" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
 
-            <div class="tech-block fade-in">
-                <h3>💪 건강 효과</h3>
-                <ul>
-                    <li>세포 재생 촉진 및 활성화</li>
-                    <li>혈액 순환 개선</li>
-                    <li>면역력 강화</li>
-                    <li>피로 회복 및 스트레스 완화</li>
-                    <li>피부 개선 및 노화 방지</li>
-                    <li>통증 완화 및 염증 감소</li>
-                </ul>
-            </div>
+            <div class="tech-text fade-in">
+                <h2>생명을 키우는 빛 에너지</h2>
+                <p>
+                    바이오포톤(Bio-Photon)은 생명을 의미하는 'Bio'와 빛을 의미하는 'Photon'의 합성어입니다. 
+                    PDP(Platinum Diamond Photon)는 다이아몬드와 백금을 나노화시킨 차세대 신소재로, 
+                    인체에 가장 유익한 4~14 미크론 파장의 생육광선을 지속적으로 방사합니다.
+                </p>
 
-            <div class="tech-block fade-in">
-                <h3>🔒 안전성</h3>
-                <ul>
-                    <li>FDA 승인 받은 안전한 기술</li>
-                    <li>부작용 없는 자연 광선 활용</li>
-                    <li>임상적으로 검증된 효과</li>
-                    <li>비침습적 건강관리 방법</li>
-                    <li>남녀노소 누구나 안전하게 사용</li>
-                </ul>
-            </div>
-        </div>
-    </section>
+                <p>
+                    1981년 NASA의 연구에 따르면, 태양빛 중 4~14 미크론 파장의 생육광선이 
+                    인체에 매우 유효하게 작용하며 생물의 생존에 절대적으로 필요한 존재임이 밝혀졌습니다.
+                </p>
 
-    <!-- 서비스 섹션 -->
-    <section class="services" id="services">
-        <div class="section-header fade-in">
-            <div class="section-tag">Services</div>
-            <h2 class="section-title">제공 서비스</h2>
-            <p class="section-description">
-                건강관리부터 뷰티까지, 통합 웰니스 솔루션을 제공합니다
-            </p>
-        </div>
+                <div class="tech-features">
+                    <div class="feature-item">
+                        <div class="feature-icon">🌡️</div>
+                        <div class="feature-text">
+                            <h4>체온 관리</h4>
+                            <p>체온 1℃ 상승 시 면역력 5배 증진, 1℃ 하강 시 면역력 30% 감소</p>
+                        </div>
+                    </div>
 
-        <div class="services-grid">
-            <div class="service-card fade-in">
-                <div class="service-image">💎</div>
-                <div class="service-content">
-                    <h3>건강관리 프로그램</h3>
-                    <p>바이오포톤 PDP 기술을 활용한 전문 건강관리 서비스</p>
-                    <ul>
-                        <li>개인 맞춤형 건강 분석</li>
-                        <li>정기 건강관리 프로그램</li>
-                        <li>세포 활성화 케어</li>
-                        <li>면역력 증진 프로그램</li>
-                        <li>피로 회복 집중 케어</li>
-                    </ul>
-                    <div class="service-price">상담 후 안내</div>
-                </div>
-            </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">💧</div>
+                        <div class="feature-text">
+                            <h4>혈류 활성화</h4>
+                            <p>생육광선이 체내 깊숙이 침투(40~50mm)하여 혈액순환을 촉진합니다</p>
+                        </div>
+                    </div>
 
-            <div class="service-card fade-in">
-                <div class="service-image">✂️</div>
-                <div class="service-content">
-                    <h3>라파헤어 프라이빗 살롱</h3>
-                    <p>두피 건강관리와 헤어 케어를 함께 제공하는 프리미엄 살롱</p>
-                    <ul>
-                        <li>두피 PDP 집중 케어</li>
-                        <li>탈모 예방 프로그램</li>
-                        <li>헤어 트리트먼트</li>
-                        <li>스타일링 서비스</li>
-                        <li>완전 예약제 1:1 케어</li>
-                    </ul>
-                    <div class="service-price">프로그램별 상이</div>
-                </div>
-            </div>
-
-            <div class="service-card fade-in">
-                <div class="service-image">🛍️</div>
-                <div class="service-content">
-                    <h3>제품 판매</h3>
-                    <p>바이오포톤 공식 제품을 합리적인 가격으로 만나보세요</p>
-                    <ul>
-                        <li>가정용 PDP 기기</li>
-                        <li>건강 보조 제품</li>
-                        <li>뷰티 케어 제품</li>
-                        <li>전문 상담 및 A/S</li>
-                        <li>정품 보증</li>
-                    </ul>
-                    <div class="service-price">제품별 상이</div>
+                    <div class="feature-item">
+                        <div class="feature-icon">🛡️</div>
+                        <div class="feature-text">
+                            <h4>면역세포 활성화</h4>
+                            <p>지속적인 생육광선 방사로 면역세포를 활성화시킵니다</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1179,84 +1361,165 @@
     <section class="products" id="products">
         <div class="section-header fade-in">
             <div class="section-tag">Products</div>
-            <h2 class="section-title">바이오포톤 제품</h2>
+            <h2 class="section-title">바이오포톤 제품 라인업</h2>
             <p class="section-description">
-                가정에서도 전문가 수준의 건강관리를<br>
-                경험하실 수 있습니다
+                센터에서 체험 후 구매 가능한 바이오포톤 정품 제품을 소개합니다
             </p>
         </div>
 
         <div class="products-grid">
             <div class="product-card fade-in">
-                <div class="product-image">
-                    🔆
-                    <span class="product-badge">인기</span>
+                <div class="product-image" style="background: none;">
+                    <img src="assets/common/products/sec02_img01.png" alt="PDP 전신돔" style="width: 100%; height: 100%; object-fit: contain; padding: 2rem;">
                 </div>
                 <div class="product-info">
-                    <h3>PDP 홈케어 기기</h3>
-                    <p>가정에서 사용 가능한 전문가용 PDP 광선 기기로 언제 어디서나 건강관리가 가능합니다.</p>
-                    <div class="product-price">상담 후 안내</div>
+                    <h3 class="product-name">PDP 전신돔 4.5</h3>
+                    <p class="product-description">
+                        돔 내부 상하부에 PDP시트와 원적외선 히터를 장착한 전신 사우나 시스템. 
+                        편백나무 바닥과 상하체 온도 조절 기능으로 최적의 체험을 제공합니다.
+                    </p>
+                    <ul class="product-benefits">
+                        <li>전신 생육광선 케어 (40~50mm 심부 침투)</li>
+                        <li>혈액순환 촉진 및 체온 상승</li>
+                        <li>독소 배출 및 다이어트 효과</li>
+                        <li>상하체 온도 개별 조절 가능</li>
+                    </ul>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="#booking" class="experience-button" style="flex: 1; text-align: center;">체험 예약</a>
+                        <a href="tel:010-3630-7002" class="experience-button" style="flex: 1; text-align: center; background: var(--accent);">구매 문의</a>
+                    </div>
                 </div>
             </div>
 
             <div class="product-card fade-in">
-                <div class="product-image">
-                    💊
-                    <span class="product-badge">추천</span>
+                <div class="product-image" style="background: none;">
+                    <img src="assets/common/products/sec02_img04.png" alt="PDP 멀티돔" style="width: 100%; height: 100%; object-fit: contain; padding: 2rem;">
                 </div>
                 <div class="product-info">
-                    <h3>건강 보조 제품</h3>
-                    <p>바이오포톤 기술과 함께 사용하면 더욱 효과적인 건강 보조 제품 라인업입니다.</p>
-                    <div class="product-price">제품별 상이</div>
+                    <h3 class="product-name">PDP 멀티돔</h3>
+                    <p class="product-description">
+                        각 부위별로 필요한 곳에 생육광선 열에너지를 깊숙이 전달시킬 수 있는 
+                        편리한 멀티돔. 접이식과 일체형 두 가지 타입 체험 가능합니다.
+                    </p>
+                    <ul class="product-benefits">
+                        <li>원하는 부위 집중 케어</li>
+                        <li>수족냉증 완화 효과</li>
+                        <li>부종 관리 및 순환 개선</li>
+                        <li>타이머 및 온도 설정 기능</li>
+                    </ul>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="#booking" class="experience-button" style="flex: 1; text-align: center;">체험 예약</a>
+                        <a href="tel:010-3630-7002" class="experience-button" style="flex: 1; text-align: center; background: var(--accent);">구매 문의</a>
+                    </div>
                 </div>
             </div>
 
             <div class="product-card fade-in">
-                <div class="product-image">
-                    ✨
-                    <span class="product-badge">신제품</span>
+                <div class="product-image" style="background: none;">
+                    <img src="assets/common/products/sec02_img02.png" alt="PDP 하프돔" style="width: 100%; height: 100%; object-fit: contain; padding: 2rem;">
                 </div>
                 <div class="product-info">
-                    <h3>뷰티 케어 제품</h3>
-                    <p>피부 건강과 미용을 동시에 케어하는 프리미엄 뷰티 제품 시리즈입니다.</p>
-                    <div class="product-price">제품별 상이</div>
+                    <h3 class="product-name">PDP 하프돔 (히노끼)</h3>
+                    <p class="product-description">
+                        4장의 바이오포톤 히터를 설치한 천연 히노끼 원목 돔. 
+                        피톤치드와 나무의 온기를 느끼며 심부까지 따뜻해지는 건식 반신욕 체험.
+                    </p>
+                    <ul class="product-benefits">
+                        <li>천연 히노끼 피톤치드 효과</li>
+                        <li>하체 집중 온열 케어</li>
+                        <li>지속적인 따뜻함 유지</li>
+                        <li>편안한 반신욕 자세</li>
+                    </ul>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="#booking" class="experience-button" style="flex: 1; text-align: center;">체험 예약</a>
+                        <a href="tel:010-3630-7002" class="experience-button" style="flex: 1; text-align: center; background: var(--accent);">구매 문의</a>
+                    </div>
                 </div>
             </div>
+        </div>
 
-            <div class="product-card fade-in">
-                <div class="product-image">👨‍⚕️</div>
-                <div class="product-info">
-                    <h3>전문가 상담</h3>
-                    <p>제품 구매 전 무료 상담을 통해 개인에게 가장 적합한 제품을 추천해드립니다.</p>
-                    <div class="product-price">무료</div>
-                </div>
+        <div style="max-width: 1200px; margin: 4rem auto; text-align: center; padding: 3rem; background: var(--light); border-radius: 20px;">
+            <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; font-weight: 700;">이외에도 다양한 제품을 만나보실 수 있습니다</h3>
+            <p style="font-size: 1.1rem; color: var(--text); margin-bottom: 2rem; line-height: 1.8;">
+                침구류(매트, 베개, 이불) / 서포터류(허리, 무릎, 손목 등) / 쥬얼리 & 소품<br>
+                자세한 제품 라인업과 가격은 센터 방문 또는 전화 상담을 통해 안내드립니다.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 1rem;">
+                <a href="tel:010-3630-7002" style="padding: 1rem 2.5rem; background: var(--primary); color: white; border-radius: 50px; text-decoration: none; font-weight: 700;">📞 제품 문의하기</a>
+                <a href="http://www.bio-photon.com/sub02/sub0201.php" target="_blank" style="padding: 1rem 2.5rem; background: white; color: var(--primary); border: 2px solid var(--primary); border-radius: 50px; text-decoration: none; font-weight: 700;">본사 제품 보기</a>
             </div>
         </div>
     </section>
 
-    <!-- 후기 섹션 -->
-    <section class="reviews" id="reviews">
+    <!-- 도입 사례 섹션 -->
+    <section style="padding: 8rem 5%; background: linear-gradient(to bottom, white, var(--light));">
         <div class="section-header fade-in">
-            <div class="section-tag">Reviews</div>
-            <h2 class="section-title">고객 후기</h2>
+            <div class="section-tag">Trust</div>
+            <h2 class="section-title">전국 병원·의원에서 선택한 바이오포톤</h2>
             <p class="section-description">
-                라파케어를 경험하신 고객분들의<br>
-                생생한 후기를 확인해보세요
+                전국 200여 곳 이상의 병원, 한의원과 1,000여 개소 이상의 피부관리샵, 
+                필라테스 센터에서 바이오포톤을 신뢰하고 사용하고 있습니다.
             </p>
         </div>
 
-        <div class="reviews-grid">
+        <div style="max-width: 1400px; margin: 4rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+            <div class="fade-in" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <img src="assets/common/products/sec04_img01.jpg" alt="세강병원" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem; background: white; text-align: center;">
+                    <h4 style="color: var(--primary); font-weight: 700;">세강병원</h4>
+                </div>
+            </div>
+            <div class="fade-in" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <img src="assets/common/products/sec04_img02.jpg" alt="바노바기 성형외과" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem; background: white; text-align: center;">
+                    <h4 style="color: var(--primary); font-weight: 700;">바노바기 성형외과</h4>
+                </div>
+            </div>
+            <div class="fade-in" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <img src="assets/common/products/sec04_img03.jpg" alt="자연미인의원" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem; background: white; text-align: center;">
+                    <h4 style="color: var(--primary); font-weight: 700;">자연미인의원</h4>
+                </div>
+            </div>
+            <div class="fade-in" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;">
+                <img src="assets/common/products/sec04_img06.jpg" alt="헬레나의원" style="width: 100%; height: 200px; object-fit: cover;">
+                <div style="padding: 1.5rem; background: white; text-align: center;">
+                    <h4 style="color: var(--primary); font-weight: 700;">헬레나의원</h4>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="font-size: 1.1rem; color: var(--text); font-weight: 500;">
+                이외에도 전국 수많은 의료기관과 헬스케어 센터에서<br>
+                바이오포톤의 효과를 인정하고 적극 활용하고 있습니다.
+            </p>
+        </div>
+    </section>
+
+    <!-- 체험 후기 섹션 -->
+    <section class="reviews" id="reviews">
+        <div class="section-header fade-in">
+            <div class="section-tag">Reviews</div>
+            <h2 class="section-title">체험하신 분들의 이야기</h2>
+            <p class="section-description">
+                라파케어를 경험하신 고객님들의 진솔한 후기를 들어보세요
+            </p>
+        </div>
+
+        <div class="reviews-container">
             <div class="review-card fade-in">
                 <div class="review-stars">★★★★★</div>
                 <p class="review-text">
-                    "만성 피로로 고생했는데 PDP 케어를 받은 후 눈에 띄게 활력이 생겼어요. 
-                    전문적인 상담과 친절한 서비스에 감동받았습니다."
+                    "만성 피로에 시달렸는데 정기 회원권 끊고 꾸준히 전신돔 관리 받으니 
+                    몸이 정말 가벼워졌어요. 땀을 흘리면서 독소가 빠져나가는 느낌이 확실합니다. 
+                    직원분들도 친절하고 센터도 깨끗해서 만족합니다."
                 </p>
-                <div class="review-author">
-                    <div class="review-avatar">김</div>
-                    <div class="review-info">
-                        <h4>김○○ 님</h4>
-                        <p>건강관리 프로그램 | 40대 여성</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">김</div>
+                    <div class="reviewer-details">
+                        <h4>김미영 님</h4>
+                        <p>40대 여성 · 정기 회원</p>
                     </div>
                 </div>
             </div>
@@ -1264,14 +1527,15 @@
             <div class="review-card fade-in">
                 <div class="review-stars">★★★★★</div>
                 <p class="review-text">
-                    "라파헤어 살롱에서 두피 케어를 받았는데 정말 만족스러웠어요. 
-                    탈모 걱정이 줄어들고 머리카락이 건강해진 느낌입니다."
+                    "수족냉증이 너무 심해서 고생했는데, 멀티돔 관리를 꾸준히 받으니 
+                    손발이 따뜻해지는 걸 느껴요. 체온이 올라가니까 
+                    전반적으로 컨디션이 좋아졌습니다. 가격도 합리적이고 시설도 좋아요."
                 </p>
-                <div class="review-author">
-                    <div class="review-avatar">박</div>
-                    <div class="review-info">
-                        <h4>박○○ 님</h4>
-                        <p>라파헤어 살롱 | 30대 남성</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">박</div>
+                    <div class="reviewer-details">
+                        <h4>박지혜 님</h4>
+                        <p>30대 여성 · 정기 회원</p>
                     </div>
                 </div>
             </div>
@@ -1279,14 +1543,31 @@
             <div class="review-card fade-in">
                 <div class="review-stars">★★★★★</div>
                 <p class="review-text">
-                    "제품 상담부터 구매 후 관리까지 정말 세심하게 챙겨주셔서 감사해요. 
-                    집에서도 편하게 건강관리 할 수 있어서 좋습니다."
+                    "건강관리 받고 바로 헤어도 할 수 있어서 너무 편해요. 
+                    프라이빗하게 운영되니까 편안하고, 원장님 실력도 좋으세요. 
+                    건강도 챙기고 머리도 예쁘게 하니까 일석이조예요!"
                 </p>
-                <div class="review-author">
-                    <div class="review-avatar">이</div>
-                    <div class="review-info">
-                        <h4>이○○ 님</h4>
-                        <p>제품 구매 고객 | 50대 여성</p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">이</div>
+                    <div class="reviewer-details">
+                        <h4>이수진 님</h4>
+                        <p>30대 여성 · 복합 서비스 이용</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review-card fade-in">
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                    "전신돔 체험하고 너무 좋아서 바로 구매했어요. 
+                    센터에서 자세한 설명도 들을 수 있고, 직접 써보고 결정할 수 있어서 좋았습니다. 
+                    사후관리도 잘 해주시고, 집에서 매일 사용하고 있어요."
+                </p>
+                <div class="reviewer-info">
+                    <div class="reviewer-avatar">최</div>
+                    <div class="reviewer-details">
+                        <h4>최영희 님</h4>
+                        <p>50대 여성 · 제품 구매</p>
                     </div>
                 </div>
             </div>
@@ -1421,7 +1702,7 @@
         <div class="footer-content">
             <div>
                 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                    <img src="assets/img/footer_logo.svg" alt="바이오포톤" style="height: 35px; filter: brightness(0) invert(1);">
+                    <img src="assets/common/products/footer_logo.svg" alt="바이오포톤" style="height: 35px; filter: brightness(0) invert(1);">
                     <div style="border-left: 2px solid rgba(255,255,255,0.3); height: 25px;"></div>
                     <div class="footer-brand" style="margin: 0;">RaphaCare</div>
                 </div>
@@ -1452,7 +1733,7 @@
                 <ul class="footer-links">
                     <li><a href="#booking">상담 예약</a></li>
                     <li><a href="#visit">오시는 길</a></li>
-                    <li><a href="https://www.bio-photon.com" target="_blank">바이오포톤 본사</a></li>
+                    <li><a href="http://www.bio-photon.com" target="_blank">바이오포톤 본사</a></li>
                     <li><a href="#reviews">고객 후기</a></li>
                 </ul>
             </div>
