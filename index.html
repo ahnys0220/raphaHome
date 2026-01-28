@@ -369,18 +369,6 @@
             z-index: 1;
         }
 
-        .tech-placeholder {
-            width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-            position: relative;
-        }
-
         .tech-text h2 {
             font-size: 2.5rem;
             color: var(--dark);
@@ -463,20 +451,6 @@
             justify-content: center;
             position: relative;
             overflow: hidden;
-        }
-
-        .product-image::before {
-            content: '';
-            position: absolute;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
-        }
-
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
         }
 
         .product-image span {
@@ -671,17 +645,6 @@
             line-height: 1.7;
         }
 
-        .map-placeholder {
-            height: 400px;
-            background: linear-gradient(135deg, var(--secondary), var(--primary));
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 2rem;
-        }
-
         /* 예약 섹션 */
         .booking {
             padding: 8rem 5%;
@@ -858,11 +821,10 @@
     </style>
 </head>
 <body>
-    <!-- 네비게이션 -->
     <nav id="navbar">
         <div class="nav-container">
             <div class="logo" style="display: flex; align-items: center; gap: 1rem;">
-                <img src="http://www.bio-photon.com/assets/img/common/footer_logo.svg" alt="바이오포톤" style="height: 40px;">
+                <img src="misc/main_logo.svg" alt="바이오포톤" style="height: 40px;">
                 <div style="border-left: 2px solid var(--border); height: 30px; margin: 0 0.5rem;"></div>
                 <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--primary);">Rapha<span style="color: var(--accent); font-weight: 400;">Care</span></span>
             </div>
@@ -877,10 +839,9 @@
         </div>
     </nav>
 
-    <!-- 히어로 섹션 -->
     <section class="hero">
         <video class="hero-video" autoplay loop muted playsinline>
-            <source src="http://www.bio-photon.com/assets/img/bg/visual_video.mp4" type="video/mp4">
+            <source src="misc/visual_video.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
             <h1>건강한 삶의 시작<br>라파케어 시흥센터</h1>
@@ -892,7 +853,6 @@
         </div>
     </section>
 
-    <!-- 소개 섹션 -->
     <section class="intro" id="intro">
         <div class="section-header fade-in">
             <div class="section-tag">About Us</div>
@@ -924,18 +884,14 @@
         </div>
     </section>
 
-    <!-- 서비스 안내 섹션 -->
     <section class="intro" id="services" style="background: white;">
         <div class="section-header fade-in">
             <div class="section-tag">Services</div>
             <h2 class="section-title">라파케어 서비스 안내</h2>
-            <p class="section-description">
-                건강관리부터 뷰티케어까지, 토털 웰니스 서비스를 제공합니다
-            </p>
+            <p class="section-description">건강관리부터 뷰티케어까지, 토털 웰니스 서비스를 제공합니다</p>
         </div>
 
         <div style="max-width: 1200px; margin: 4rem auto;">
-            <!-- 건강관리 서비스 -->
             <div class="fade-in" style="background: linear-gradient(135deg, var(--light), white); padding: 4rem; border-radius: 30px; margin-bottom: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
                 <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;">
                     <div style="text-align: center;">
@@ -953,90 +909,24 @@
                                 <strong style="color: var(--primary);">정기 회원권</strong>
                                 <p style="margin-top: 0.5rem; color: var(--text);">10회 / 20회 / 30회권 (할인 혜택 제공)</p>
                             </div>
-                            <div style="padding: 1.5rem; background: white; border-radius: 15px; border-left: 4px solid var(--accent);">
-                                <strong style="color: var(--primary);">맞춤 케어 프로그램</strong>
-                                <p style="margin-top: 0.5rem; color: var(--text);">개인별 건강 상태에 맞춘 집중 관리 프로그램</p>
-                            </div>
                         </div>
                         <p style="color: var(--accent); font-weight: 600;">※ 첫 방문 고객 상담 후 1회 체험 가능 (유료)</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 제품 판매 -->
-            <div class="fade-in" style="background: linear-gradient(135deg, white, var(--light)); padding: 4rem; border-radius: 30px; margin-bottom: 3rem; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
-                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 3rem; align-items: center;">
-                    <div>
-                        <h4 style="font-size: 1.5rem; color: var(--dark); margin-bottom: 1.5rem; font-weight: 700;">바이오포톤 제품 판매</h4>
-                        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem;">
-                            센터에서 직접 체험해보신 제품을 구매하실 수 있습니다. 
-                            전신돔, 멀티돔, 히노끼돔은 물론 침구류, 서포터류, 생활용품까지 
-                            다양한 바이오포톤 제품을 만나보세요.
-                        </p>
-                        <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                            <span style="padding: 0.8rem 1.5rem; background: white; border-radius: 50px; color: var(--primary); font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">온열 기기</span>
-                            <span style="padding: 0.8rem 1.5rem; background: white; border-radius: 50px; color: var(--primary); font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">침구 & 매트</span>
-                            <span style="padding: 0.8rem 1.5rem; background: white; border-radius: 50px; color: var(--primary); font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">서포터류</span>
-                            <span style="padding: 0.8rem 1.5rem; background: white; border-radius: 50px; color: var(--primary); font-weight: 600; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">생활용품</span>
-                        </div>
-                        <p style="margin-top: 2rem; color: var(--accent); font-weight: 600;">✓ 정품 보증 / 사후관리 서비스 / 분할 납부 가능</p>
-                    </div>
-                    <div style="text-align: center;">
-                        <div style="font-size: 5rem; margin-bottom: 1rem;">🛍️</div>
-                        <h3 style="font-size: 2rem; color: var(--primary); font-weight: 700;">제품<br>구매</h3>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 라파헤어 -->
-            <div class="fade-in" style="background: linear-gradient(135deg, #f8f4ef, #fff); padding: 4rem; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05);">
-                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; align-items: center;">
-                    <div style="text-align: center;">
-                        <div style="font-size: 5rem; margin-bottom: 1rem;">✂️</div>
-                        <h3 style="font-size: 2rem; color: var(--primary); font-weight: 700;">라파헤어<br>프라이빗 살롱</h3>
-                    </div>
-                    <div>
-                        <h4 style="font-size: 1.5rem; color: var(--dark); margin-bottom: 1.5rem; font-weight: 700;">편안한 프라이빗 미용 서비스</h4>
-                        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text); margin-bottom: 2rem;">
-                            건강관리 후 바로 이어지는 헤어 케어 서비스. 
-                            프라이빗한 공간에서 편안하게 커트, 펌, 염색 등 
-                            전문 미용 서비스를 받으실 수 있습니다.
-                        </p>
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
-                            <div style="padding: 1rem; background: white; border-radius: 10px; text-align: center;">
-                                <strong style="color: var(--primary);">커트</strong>
-                            </div>
-                            <div style="padding: 1rem; background: white; border-radius: 10px; text-align: center;">
-                                <strong style="color: var(--primary);">펌</strong>
-                            </div>
-                            <div style="padding: 1rem; background: white; border-radius: 10px; text-align: center;">
-                                <strong style="color: var(--primary);">염색</strong>
-                            </div>
-                            <div style="padding: 1rem; background: white; border-radius: 10px; text-align: center;">
-                                <strong style="color: var(--primary);">클리닉</strong>
-                            </div>
-                        </div>
-                        <p style="margin-top: 2rem; color: var(--accent); font-weight: 600;">※ 완전 예약제 운영 / 건강관리 + 헤어 패키지 할인 제공</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 바이오포톤 기술 섹션 -->
     <section class="technology" id="technology">
         <div class="section-header fade-in">
             <div class="section-tag">Technology</div>
             <h2 class="section-title">바이오포톤 PDP 기술</h2>
-            <p class="section-description">
-                NASA가 주목한 생육광선 연구를 기반으로 개발된 차세대 건강 케어 기술
-            </p>
+            <p class="section-description">NASA가 주목한 생육광선 연구를 기반으로 개발된 차세대 건강 케어 기술</p>
         </div>
 
-        <!-- NASA 인증 섹션 -->
         <div style="max-width: 1200px; margin: 4rem auto; padding: 4rem; background: white; border-radius: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.1);">
             <div style="text-align: center; margin-bottom: 3rem;">
-                <img src="http://www.bio-photon.com/assets/img/bg/sec01_img01.png" alt="NASA 로고" style="max-width: 200px; margin-bottom: 2rem;">
+                <img src="misc/sec01_img01.png" alt="NASA 로고" style="max-width: 200px; margin-bottom: 2rem;">
                 <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 1.5rem; font-weight: 700;">NASA(미국항공우주국) 1981년 우주개발 연구결과</h3>
                 <p style="font-size: 1.2rem; line-height: 1.9; color: var(--text); max-width: 900px; margin: 0 auto;">
                     "우주로부터 지구에 쏟아지는 태양빛 중 4~14미크론의 파장을 가진 생육광선이야말로 
@@ -1044,13 +934,13 @@
                 </p>
             </div>
             <div style="text-align: center;">
-                <img src="http://www.bio-photon.com/assets/img/bg/sec01_img02.png" alt="생육광선 파장 설명" style="max-width: 100%; border-radius: 20px;">
+                <img src="misc/sec01_img02.png" alt="생육광선 파장 설명" style="max-width: 100%; border-radius: 20px;">
             </div>
         </div>
 
         <div class="tech-content">
             <div class="tech-image fade-in">
-                <img src="http://www.bio-photon.com/assets/img/bg/sec03_img01.jpg" alt="바이오포톤 본사 건물" style="width: 100%; height: 100%; object-fit: cover;">
+                <img src="misc/sec03_img01.jpg" alt="바이오포톤 본사 건물" style="width: 100%; height: 100%; object-fit: cover;">
             </div>
 
             <div class="tech-text fade-in">
@@ -1058,12 +948,7 @@
                 <p>
                     바이오포톤(Bio-Photon)은 생명을 의미하는 'Bio'와 빛을 의미하는 'Photon'의 합성어입니다. 
                     PDP(Platinum Diamond Photon)는 다이아몬드와 백금을 나노화시킨 차세대 신소재로, 
-                    인체에 가장 유익한 4~14 미크론 파장의 생육광선을 지속적으로 방사합니다.
-                </p>
-
-                <p>
-                    1981년 NASA의 연구에 따르면, 태양빛 중 4~14 미크론 파장의 생육광선이 
-                    인체에 매우 유효하게 작용하며 생물의 생존에 절대적으로 필요한 존재임이 밝혀졌습니다.
+                    인체에 가장 유익한 파장의 생육광선을 지속적으로 방사합니다.
                 </p>
 
                 <div class="tech-features">
@@ -1071,23 +956,7 @@
                         <div class="feature-icon">🌡️</div>
                         <div class="feature-text">
                             <h4>체온 관리</h4>
-                            <p>체온 1℃ 상승 시 면역력 5배 증진, 1℃ 하강 시 면역력 30% 감소</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">💧</div>
-                        <div class="feature-text">
-                            <h4>혈류 활성화</h4>
-                            <p>생육광선이 체내 깊숙이 침투(40~50mm)하여 혈액순환을 촉진합니다</p>
-                        </div>
-                    </div>
-
-                    <div class="feature-item">
-                        <div class="feature-icon">🛡️</div>
-                        <div class="feature-text">
-                            <h4>면역세포 활성화</h4>
-                            <p>지속적인 생육광선 방사로 면역세포를 활성화시킵니다</p>
+                            <p>체온 1℃ 상승 시 면역력 5배 증진</p>
                         </div>
                     </div>
                 </div>
@@ -1095,231 +964,59 @@
         </div>
     </section>
 
-    <!-- 제품 섹션 -->
     <section class="products" id="products">
         <div class="section-header fade-in">
             <div class="section-tag">Products</div>
             <h2 class="section-title">바이오포톤 제품 라인업</h2>
-            <p class="section-description">
-                센터에서 체험 후 구매 가능한 바이오포톤 정품 제품을 소개합니다
-            </p>
+            <p class="section-description">센터에서 체험 후 구매 가능한 바이오포톤 정품 제품을 소개합니다</p>
         </div>
 
         <div class="products-grid">
             <div class="product-card fade-in">
                 <div class="product-image" style="background: none;">
-                    <img src="http://www.bio-photon.com/assets/img/bg/sec02_img01.png" alt="PDP 전신돔" style="width: 100%; height: 100%; object-fit: contain; padding: 2rem;">
+                    <img src="misc/sec02_img01.png" alt="PDP 전신돔" style="width: 100%; height: 100%; object-fit: contain; padding: 2rem;">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">PDP 전신돔 4.5</h3>
-                    <p class="product-description">
-                        돔 내부 상하부에 PDP시트와 원적외선 히터를 장착한 전신 사우나 시스템. 
-                        편백나무 바닥과 상하체 온도 조절 기능으로 최적의 체험을 제공합니다.
-                    </p>
                     <ul class="product-benefits">
-                        <li>전신 생육광선 케어 (40~50mm 심부 침투)</li>
-                        <li>혈액순환 촉진 및 체온 상승</li>
+                        <li>전신 생육광선 케어</li>
                         <li>독소 배출 및 다이어트 효과</li>
-                        <li>상하체 온도 개별 조절 가능</li>
                     </ul>
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="#booking" class="experience-button" style="flex: 1; text-align: center;">체험 예약</a>
-                        <a href="tel:010-3630-7002" class="experience-button" style="flex: 1; text-align: center; background: var(--accent);">구매 문의</a>
-                    </div>
                 </div>
             </div>
 
             <div class="product-card fade-in">
                 <div class="product-image" style="background: none;">
-                    <img src="http://www.bio-photon.com/assets/img/bg/sec02_img04.png" alt="PDP 멀티돔" style="width: 100%; height: 100%; object-fit: contain; padding: 2rem;">
+                    <img src="misc/sec02_img03.png" alt="PDP 멀티돔" style="width: 100%; height: 100%; object-fit: contain; padding: 2rem;">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">PDP 멀티돔</h3>
-                    <p class="product-description">
-                        각 부위별로 필요한 곳에 생육광선 열에너지를 깊숙이 전달시킬 수 있는 
-                        편리한 멀티돔. 접이식과 일체형 두 가지 타입 체험 가능합니다.
-                    </p>
                     <ul class="product-benefits">
                         <li>원하는 부위 집중 케어</li>
                         <li>수족냉증 완화 효과</li>
-                        <li>부종 관리 및 순환 개선</li>
-                        <li>타이머 및 온도 설정 기능</li>
                     </ul>
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="#booking" class="experience-button" style="flex: 1; text-align: center;">체험 예약</a>
-                        <a href="tel:010-3630-7002" class="experience-button" style="flex: 1; text-align: center; background: var(--accent);">구매 문의</a>
-                    </div>
                 </div>
             </div>
 
             <div class="product-card fade-in">
                 <div class="product-image" style="background: none;">
-                    <img src="http://www.bio-photon.com/assets/img/bg/sec02_img02.png" alt="PDP 하프돔" style="width: 100%; height: 100%; object-fit: contain; padding: 2rem;">
+                    <img src="misc/sec02_img02.png" alt="PDP 하프돔" style="width: 100%; height: 100%; object-fit: contain; padding: 2rem;">
                 </div>
                 <div class="product-info">
                     <h3 class="product-name">PDP 하프돔 (히노끼)</h3>
-                    <p class="product-description">
-                        4장의 바이오포톤 히터를 설치한 천연 히노끼 원목 돔. 
-                        피톤치드와 나무의 온기를 느끼며 심부까지 따뜻해지는 건식 반신욕 체험.
-                    </p>
                     <ul class="product-benefits">
                         <li>천연 히노끼 피톤치드 효과</li>
                         <li>하체 집중 온열 케어</li>
-                        <li>지속적인 따뜻함 유지</li>
-                        <li>편안한 반신욕 자세</li>
                     </ul>
-                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
-                        <a href="#booking" class="experience-button" style="flex: 1; text-align: center;">체험 예약</a>
-                        <a href="tel:010-3630-7002" class="experience-button" style="flex: 1; text-align: center; background: var(--accent);">구매 문의</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style="max-width: 1200px; margin: 4rem auto; text-align: center; padding: 3rem; background: var(--light); border-radius: 20px;">
-            <h3 style="font-size: 1.8rem; color: var(--primary); margin-bottom: 1rem; font-weight: 700;">이외에도 다양한 제품을 만나보실 수 있습니다</h3>
-            <p style="font-size: 1.1rem; color: var(--text); margin-bottom: 2rem; line-height: 1.8;">
-                침구류(매트, 베개, 이불) / 서포터류(허리, 무릎, 손목 등) / 쥬얼리 & 소품<br>
-                자세한 제품 라인업과 가격은 센터 방문 또는 전화 상담을 통해 안내드립니다.
-            </p>
-            <div style="display: flex; justify-content: center; gap: 1rem;">
-                <a href="tel:010-3630-7002" style="padding: 1rem 2.5rem; background: var(--primary); color: white; border-radius: 50px; text-decoration: none; font-weight: 700;">📞 제품 문의하기</a>
-                <a href="http://www.bio-photon.com/sub02/sub0201.php" target="_blank" style="padding: 1rem 2.5rem; background: white; color: var(--primary); border: 2px solid var(--primary); border-radius: 50px; text-decoration: none; font-weight: 700;">본사 제품 보기</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 도입 사례 섹션 -->
-    <section style="padding: 8rem 5%; background: linear-gradient(to bottom, white, var(--light));">
-        <div class="section-header fade-in">
-            <div class="section-tag">Trust</div>
-            <h2 class="section-title">전국 병원·의원에서 선택한 바이오포톤</h2>
-            <p class="section-description">
-                전국 200여 곳 이상의 병원, 한의원과 1,000여 개소 이상의 피부관리샵, 
-                필라테스 센터에서 바이오포톤을 신뢰하고 사용하고 있습니다.
-            </p>
-        </div>
-
-        <div style="max-width: 1400px; margin: 4rem auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
-            <div class="fade-in" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                <img src="http://www.bio-photon.com/assets/img/bg/sec04_img01.jpg" alt="세강병원" style="width: 100%; height: 200px; object-fit: cover;">
-                <div style="padding: 1.5rem; background: white; text-align: center;">
-                    <h4 style="color: var(--primary); font-weight: 700;">세강병원</h4>
-                </div>
-            </div>
-            <div class="fade-in" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                <img src="http://www.bio-photon.com/assets/img/bg/sec04_img02.jpg" alt="바노바기 성형외과" style="width: 100%; height: 200px; object-fit: cover;">
-                <div style="padding: 1.5rem; background: white; text-align: center;">
-                    <h4 style="color: var(--primary); font-weight: 700;">바노바기 성형외과</h4>
-                </div>
-            </div>
-            <div class="fade-in" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                <img src="http://www.bio-photon.com/assets/img/bg/sec04_img03.jpg" alt="자연미인의원" style="width: 100%; height: 200px; object-fit: cover;">
-                <div style="padding: 1.5rem; background: white; text-align: center;">
-                    <h4 style="color: var(--primary); font-weight: 700;">자연미인의원</h4>
-                </div>
-            </div>
-            <div class="fade-in" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s;">
-                <img src="http://www.bio-photon.com/assets/img/bg/sec04_img06.jpg" alt="헬레나의원" style="width: 100%; height: 200px; object-fit: cover;">
-                <div style="padding: 1.5rem; background: white; text-align: center;">
-                    <h4 style="color: var(--primary); font-weight: 700;">헬레나의원</h4>
-                </div>
-            </div>
-        </div>
-
-        <div style="text-align: center; margin-top: 3rem;">
-            <p style="font-size: 1.1rem; color: var(--text); font-weight: 500;">
-                이외에도 전국 수많은 의료기관과 헬스케어 센터에서<br>
-                바이오포톤의 효과를 인정하고 적극 활용하고 있습니다.
-            </p>
-        </div>
-    </section>
-
-    <!-- 체험 후기 섹션 -->
-    <section class="reviews" id="reviews">
-        <div class="section-header fade-in">
-            <div class="section-tag">Reviews</div>
-            <h2 class="section-title">체험하신 분들의 이야기</h2>
-            <p class="section-description">
-                라파케어를 경험하신 고객님들의 진솔한 후기를 들어보세요
-            </p>
-        </div>
-
-        <div class="reviews-container">
-            <div class="review-card fade-in">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                    "만성 피로에 시달렸는데 정기 회원권 끊고 꾸준히 전신돔 관리 받으니 
-                    몸이 정말 가벼워졌어요. 땀을 흘리면서 독소가 빠져나가는 느낌이 확실합니다. 
-                    직원분들도 친절하고 센터도 깨끗해서 만족합니다."
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar">김</div>
-                    <div class="reviewer-details">
-                        <h4>김미영 님</h4>
-                        <p>40대 여성 · 정기 회원</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card fade-in">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                    "수족냉증이 너무 심해서 고생했는데, 멀티돔 관리를 꾸준히 받으니 
-                    손발이 따뜻해지는 걸 느껴요. 체온이 올라가니까 
-                    전반적으로 컨디션이 좋아졌습니다. 가격도 합리적이고 시설도 좋아요."
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar">박</div>
-                    <div class="reviewer-details">
-                        <h4>박지혜 님</h4>
-                        <p>30대 여성 · 정기 회원</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card fade-in">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                    "건강관리 받고 바로 헤어도 할 수 있어서 너무 편해요. 
-                    프라이빗하게 운영되니까 편안하고, 원장님 실력도 좋으세요. 
-                    건강도 챙기고 머리도 예쁘게 하니까 일석이조예요!"
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar">이</div>
-                    <div class="reviewer-details">
-                        <h4>이수진 님</h4>
-                        <p>30대 여성 · 복합 서비스 이용</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review-card fade-in">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text">
-                    "전신돔 체험하고 너무 좋아서 바로 구매했어요. 
-                    센터에서 자세한 설명도 들을 수 있고, 직접 써보고 결정할 수 있어서 좋았습니다. 
-                    사후관리도 잘 해주시고, 집에서 매일 사용하고 있어요."
-                </p>
-                <div class="reviewer-info">
-                    <div class="reviewer-avatar">최</div>
-                    <div class="reviewer-details">
-                        <h4>최영희 님</h4>
-                        <p>50대 여성 · 제품 구매</p>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 방문 안내 섹션 -->
     <section class="visit-info" id="visit">
         <div class="section-header fade-in">
             <div class="section-tag">Visit Us</div>
             <h2 class="section-title">방문 안내</h2>
-            <p class="section-description">
-                편안한 환경에서 건강한 체험을 즐기실 수 있습니다
-            </p>
         </div>
 
         <div class="visit-container">
@@ -1328,215 +1025,52 @@
                     <h3>📍 오시는 길</h3>
                     <div class="info-item">
                         <div class="info-label">주소</div>
-                        <div class="info-value">
-                            경기도 시흥시 장현순환로 1<br>
-                            메인프라자 4층 403호<br>
-                            (시흥시청 인근, 장현지구)
-                        </div>
+                        <div class="info-value">경기도 시흥시 장현순환로 1 메인프라자 4층 403호</div>
                     </div>
-
                     <div class="info-item">
-                        <div class="info-label">운영 시간</div>
-                        <div class="info-value">
-                            평일: 오전 10:00 - 오후 8:00<br>
-                            주말: 오전 10:00 - 오후 6:00<br>
-                            <span style="color: var(--accent); font-weight: 600;">※ 방문 전 예약 필수</span>
-                        </div>
+                        <div class="info-label">연락처</div>
+                        <div class="info-value">010-3630-7002</div>
                     </div>
-
-                    <div class="info-item">
-                        <div class="info-label">주차 안내</div>
-                        <div class="info-value">
-                            건물 지하 주차장 이용 가능<br>
-                            주차 무료
-                        </div>
-                    </div>
-                </div>
-
-                <div class="info-block" style="margin-top: 2rem;">
-                    <h3>📞 연락처</h3>
-                    <div class="info-item">
-                        <div class="info-label">전화 문의</div>
-                        <div class="info-value" style="font-size: 1.4rem; font-weight: 700; color: var(--primary);">
-                            010-3630-7002
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-label">카카오톡</div>
-                        <div class="info-value">
-                            라파케어 시흥센터<br>
-                            <span style="font-size: 0.9rem; color: #666;">(전화 문의 후 카톡 ID 안내)</span>
-                        </div>
-                    </div>
-
-                    <div class="info-item">
-                        <div class="info-label">체험 예약</div>
-                        <div class="info-value">
-                            전화 또는 카카오톡으로<br>
-                            방문 희망일 24시간 전 예약
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fade-in">
-                <div style="height: 400px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3170.8937564892946!2d126.80395!3d37.37988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDIyJzQ3LjYiTiAxMjbCsDQ4JzE0LjIiRQ!5e0!3m2!1sko!2skr!4v1234567890" 
-                        width="100%" 
-                        height="400" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-                <div style="margin-top: 2rem; padding: 2rem; background: white; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.05);">
-                    <h4 style="color: var(--primary); margin-bottom: 1rem; font-size: 1.2rem;">🚗 자가용 이용 시</h4>
-                    <p style="line-height: 1.8; color: var(--text);">
-                        네비게이션에 "시흥 메인프라자" 또는 "경기 시흥시 장현순환로 1" 검색<br>
-                        시흥시청 방면 → 장현지구 메인프라자 건물
-                    </p>
-                    <h4 style="color: var(--primary); margin: 1.5rem 0 1rem; font-size: 1.2rem;">🚌 대중교통 이용 시</h4>
-                    <p style="line-height: 1.8; color: var(--text);">
-                        지하철 4호선 정왕역 하차 후 버스 이용<br>
-                        시흥시청 인근 하차 → 도보 5분
-                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 예약 섹션 -->
     <section class="booking" id="booking">
         <div class="fade-in">
             <h2>건강관리부터 뷰티까지, 지금 시작하세요</h2>
-            <p>라파케어 시흥센터에서 당신의 건강과 아름다움을 책임집니다</p>
             <div class="booking-buttons">
-                <a href="tel:010-3630-7002" class="booking-btn">
-                    <span class="booking-icon">📞</span>
-                    <span>전화 상담<br><small style="font-size: 0.9rem; font-weight: 400;">010-3630-7002</small></span>
-                </a>
-                <a href="sms:010-3630-7002?body=라파케어 시흥센터 문의드립니다." class="booking-btn">
-                    <span class="booking-icon">💬</span>
-                    <span>문자 상담</span>
-                </a>
-                <a href="#visit" class="booking-btn">
-                    <span class="booking-icon">📍</span>
-                    <span>오시는 길</span>
-                </a>
-            </div>
-            <div style="margin-top: 3rem; font-size: 0.95rem; opacity: 0.9;">
-                <p>⏰ 평일 10:00-20:00 | 주말 10:00-18:00</p>
-                <p style="margin-top: 0.5rem;">💎 건강관리 서비스 | 🛍️ 제품 판매 | ✂️ 라파헤어 살롱</p>
-                <p style="margin-top: 0.5rem;">※ 완전 예약제로 운영되며, 방문 24시간 전 예약을 권장드립니다</p>
+                <a href="tel:010-3630-7002" class="booking-btn">전화 상담</a>
             </div>
         </div>
     </section>
 
-    <!-- 푸터 -->
     <footer>
         <div class="footer-content">
             <div>
                 <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
-                    <img src="http://www.bio-photon.com/assets/img/common/footer_logo.svg" alt="바이오포톤" style="height: 35px; filter: brightness(0) invert(1);">
-                    <div style="border-left: 2px solid rgba(255,255,255,0.3); height: 25px;"></div>
-                    <div class="footer-brand" style="margin: 0;">RaphaCare</div>
+                    <img src="misc/main_logo.svg" alt="바이오포톤" style="height: 35px; filter: brightness(0) invert(1);">
+                    <div class="footer-brand">RaphaCare</div>
                 </div>
-                <p class="footer-description">
-                    바이오포톤 공식 대리점 라파케어 시흥센터<br>
-                    건강관리 · 제품판매 · 라파헤어 프라이빗 살롱
-                </p>
-                <div style="margin-top: 2rem;">
-                    <p style="margin-bottom: 0.5rem;"><strong>📍 주소</strong></p>
-                    <p style="opacity: 0.9; line-height: 1.6;">경기도 시흥시 장현순환로 1<br>메인프라자 4층 403호</p>
-                    <p style="margin-top: 1rem;"><strong>📞 문의</strong></p>
-                    <p style="opacity: 0.9;">010-3630-7002</p>
-                </div>
+                <p>© 2026 RaphaCare Siheung Center.</p>
             </div>
-
-            <div class="footer-section">
-                <h4>서비스</h4>
-                <ul class="footer-links">
-                    <li><a href="#services">건강관리 프로그램</a></li>
-                    <li><a href="#products">제품 구매</a></li>
-                    <li><a href="#services">라파헤어 살롱</a></li>
-                    <li><a href="#technology">바이오포톤 기술</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>고객지원</h4>
-                <ul class="footer-links">
-                    <li><a href="#booking">상담 예약</a></li>
-                    <li><a href="#visit">오시는 길</a></li>
-                    <li><a href="http://www.bio-photon.com" target="_blank">바이오포톤 본사</a></li>
-                    <li><a href="#reviews">고객 후기</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h4>운영 안내</h4>
-                <ul class="footer-links">
-                    <li>평일: 10:00 - 20:00</li>
-                    <li>주말: 10:00 - 18:00</li>
-                    <li style="color: var(--accent); margin-top: 1rem;">완전 예약제 운영</li>
-                    <li style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.1);">
-                        <a href="tel:010-3630-7002" style="color: white; font-weight: 700; font-size: 1.1rem;">☎ 010-3630-7002</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="footer-bottom">
-            <p>&copy; 2026 RaphaCare Siheung Center. All rights reserved.</p>
-            <p style="margin-top: 0.5rem; font-size: 0.85rem;">바이오포톤 공식 대리점 | 본사: (주)바이오포톤 서울시 금천구 가산디지털1로 145 에이스하이엔드타워 3차 307호</p>
         </div>
     </footer>
 
     <script>
-        // 스크롤 시 네비게이션 스타일 변경
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 100) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+            if (window.scrollY > 100) navbar.classList.add('scrolled');
+            else navbar.classList.remove('scrolled');
         });
-
-        // 스크롤 애니메이션
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
 
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('visible');
             });
-        }, observerOptions);
+        }, { threshold: 0.1 });
 
-        document.querySelectorAll('.fade-in').forEach((el) => {
-            observer.observe(el);
-        });
-
-        // 부드러운 스크롤
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        document.querySelectorAll('.fade-in').forEach((el) => observer.observe(el));
     </script>
 </body>
 </html>
